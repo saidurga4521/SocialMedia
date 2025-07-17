@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./hoc/ProtectedRoute";
 import PostUpLoadForm from "./pages/PostUpLoadForm";
 import Home from "./pages/Home";
-import UserProfile from "./pages/userProfile";
+import UserProfile from "./pages/UserProfile";
 
 import { getuserInfo } from "./services/Profile";
 import { useAuth } from "./context/AuthProvider";
