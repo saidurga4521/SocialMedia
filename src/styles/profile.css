@@ -1,0 +1,75 @@
+/* Container for the form elements */
+.profile-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Limit width for better appearance */
+  margin: 30px auto; /* Center the form on the page */
+}
+
+/* Style for labels */
+.profile-form-container label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Style for text inputs */
+.profile-form-container input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.2s ease-in-out;
+}
+
+.profile-form-container input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Style for disabled input (email) */
+.profile-form-container input[type="text"]:disabled {
+  background-color: #f0f0f0;
+  color: #777;
+  cursor: not-allowed;
+}
+
+/* Style for the update button */
+.profile-form-container button {
+  background-color: #28a745; /* Green for update action */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1.05em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px; /* Space above the button */
+}
+
+.profile-form-container button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.profile-form-container button:active {
+  background-color: #1e7e34; /* Even darker on click */
+}
+
+/* Optional: Basic body styling for context */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}

@@ -1,0 +1,88 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar container (Fixed at the top) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f2937; /* Dark gray-blue */
+  padding: 12px 24px;
+  flex-wrap: wrap;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Navigation links container */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual NavLink */
+.navbar-links a {
+  color: #f3f4f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+/* Hover/active effect */
+.navbar-links a:hover,
+.navbar-links a.active {
+  background-color: #4b5563;
+  color: #ffffff;
+}
+
+/* Right section: user info and logout button */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.navbar-user span {
+  font-size: 16px;
+  color: #d1d5db;
+}
+
+.navbar-user button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-user button:hover {
+  background-color: #dc2626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-user {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

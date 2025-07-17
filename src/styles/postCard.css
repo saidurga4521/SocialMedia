@@ -1,0 +1,133 @@
+/* General Body Styling (Optional, for context) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5; /* Light grey background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top of the flex container */
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Post Card Container */
+.postCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  max-width: 500px; /* Max width for readability */
+  margin-bottom: 20px; /* Space between multiple posts */
+  overflow: hidden; /* Ensures image corners are rounded */
+}
+
+/* Post Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  position: relative; /* For positioning icons */
+}
+
+.user-info {
+  font-weight: bold;
+  color: #333;
+  flex-grow: 1; /* Takes up available space */
+}
+
+.date {
+  font-size: 0.85em;
+  color: #888;
+  margin-right: 15px;
+}
+
+/* Edit and Delete Icons */
+.delete-icon,
+.edit-icon {
+  font-size: 1.1em;
+  color: #888;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.2s ease-in-out;
+}
+
+.delete-icon:hover {
+  color: #e74c3c; /* Red on hover */
+}
+
+.edit-icon:hover {
+  color: #3498db; /* Blue on hover */
+}
+
+/* Post Image */
+.post-img {
+  width: 100%;
+  display: flex; /* Helps in centering or controlling image behavior */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Placeholder background */
+}
+
+.post-img img {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes extra space below the image */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* Caption */
+.caption {
+  padding: 15px;
+  color: #444;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+/* User Actions (Like, Comment, Share) */
+.user-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 15px;
+  border-top: 1px solid #eee;
+  color: #555;
+  font-size: 1.1em;
+}
+
+.user-actions span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.user-actions span:hover {
+  color: #333;
+}
+
+.like-icon,
+.comment-icon,
+.share-icon {
+  /* Assuming FaShare will have share-icon class */
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.like-icon {
+  color: #e74c3c; /* Red for liked heart */
+}
+
+.like-icon:hover {
+  color: #c0392b;
+}
+
+.comment-icon:hover {
+  color: #2ecc71; /* Green for comment */
+}
+
+.share-icon:hover {
+  color: #9b59b6; /* Purple for share */
+}
+
+/* Removed the specific .comment-section styling from here,
+   as it's now handled by Comment.css */

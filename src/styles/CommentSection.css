@@ -1,0 +1,102 @@
+/* Comment Section Container */
+.comment-section {
+  border-top: 1px solid #eee;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  max-height: 250px; /* Limit height to prevent comments from taking too much space */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Comment Item Wrapper */
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between individual comments and the input */
+}
+
+/* User Comment Display */
+.comment-user {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between avatar and text */
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px; /* Rounded corners for comment bubble */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  position: relative; /* For positioning delete icon */
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3498db; /* Blue background for avatar */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  flex-shrink: 0; /* Prevent shrinking when text is long */
+}
+
+.comment-user p {
+  margin: 0;
+  flex-grow: 1; /* Allow comment text to take available space */
+  color: #333;
+  word-break: break-word; /* Break long words */
+}
+
+.comment-user .delete-icon {
+  font-size: 0.9em;
+  color: #aaa;
+  cursor: pointer;
+  margin-left: auto; /* Pushes the icon to the right */
+  transition: color 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.comment-user .delete-icon:hover {
+  color: #e74c3c; /* Red on hover */
+}
+
+/* Comment Input Area */
+.comment-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px; /* Space above the input field */
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.comment-input input[type="text"] {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.9em;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.comment-input input[type="text"]:focus {
+  border-color: #3498db; /* Blue border on focus */
+}
+
+.comment-input button {
+  background-color: #2ecc71; /* Green send button */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.comment-input button:hover {
+  background-color: #27ae60; /* Darker green on hover */
+}

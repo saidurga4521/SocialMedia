@@ -1,0 +1,104 @@
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import Signup from "./pages/signup";
+import { ToastContainer } from "react-toastify";
+import Login from "./pages/Login";
+
+import ProtectedRoute from "./hoc/ProtectedRoute";
+import PostUpLoadForm from "./pages/PostUpLoadForm";
+import Home from "./pages/Home";
+import UserProfile from "./pages/userProfile";
+
+import { getuserInfo } from "./services/Profile";
+import { useAuth } from "./context/AuthProvider";
+import Analytics from "./pages/Analytics";
+
+const App = () => {
+  const { user, setUser } = useAuth();
+  const fetchLoggedData = async () => {
+    try {
+      const { data } = await getuserInfo();
+
+      if (data?.success) {
+        setUser({
+          name: data?.data?.user?.name,
+          email: data?.data?.user?.email,
+          userId: data?.data?.user?._id,
+        });
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  useEffect(() => {
+    fetchLoggedData();
+  }, []);
+
+  return (
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/myposts"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <ProtectedRoute isPublic={true}>
+              <Signup />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/createpost"
+          element={
+            <ProtectedRoute>
+              <PostUpLoadForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/editpost/:id"
+          element={
+            <ProtectedRoute>
+              <PostUpLoadForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user-profile"
+          element={
+            <ProtectedRoute>
+              <UserProfile />
+            </ProtectedRoute>
+          }
+        />
+        {/* dashboard
+        <Route path="/dashboard" element={<Analytics />} /> */}
+        <Route
+          path="/login"
+          element={
+            <ProtectedRoute isPublic={true}>
+              <Login />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+      <ToastContainer />
+    </div>
+  );
+};
+
+export default App;

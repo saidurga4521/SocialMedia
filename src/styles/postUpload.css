@@ -1,0 +1,108 @@
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.upload-box {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: border-color 0.3s;
+  background-color: #fff;
+}
+
+.upload-box:hover {
+  border-color: #666;
+}
+
+.upload-icon {
+  color: #888;
+  transition: color 0.3s;
+}
+
+.upload-box:hover .upload-icon {
+  color: #333;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.remove-image-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.remove-image-icon:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.text-box {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.text-box:focus {
+  border-color: #666;
+}
+
+.post {
+  padding: 0.6rem 1.2rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.post:hover {
+  background-color: #357ab8;
+}
+
+.post:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

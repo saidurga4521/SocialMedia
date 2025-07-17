@@ -1,0 +1,85 @@
+/* Container for centering */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form box */
+.form {
+  background-color: #f8f9fa;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error text */
+.form-error {
+  margin: 4px 0 10px;
+  font-size: 13px;
+  color: red;
+}
+
+/* Button */
+.form-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Redirect text */
+.signup-redirect {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-redirect a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-redirect a:hover {
+  text-decoration: underline;
+}
