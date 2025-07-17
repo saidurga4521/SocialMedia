@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Signup from "./pages/signup";
+import Signup from "./pages/Signup";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 
