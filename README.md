@@ -15,3 +15,14 @@
          - On form submit, calls the login API, stores token, sets user context, and redirects to home.
 
          - Displays toast messages for success/error and includes links to "Forget Password" and "Sign up".
+
+#### b.signUp:
+
+         - Maintains user input state (name, email, password) and validates each field on change using validateData().
+
+         - On form submission, re-validates all fields and checks if any are empty before sending data to the server.
+
+         - Calls SignUpForm() API, shows success/error toasts, stores token in localStorage, sets user context, and redirects to home.
+
+         - Displays error messages below each input field and provides a redirect link for users who already have an account.
+
