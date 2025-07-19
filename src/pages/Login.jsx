@@ -5,6 +5,7 @@ import { LocalStorage } from "../helpers/Localstorage";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
+
 const Login = () => {
   const intialFormValues = { email: "", password: "" };
   const [user, setUser1] = useState(intialFormValues);
@@ -79,7 +80,10 @@ const Login = () => {
           />
           {errors.password && <p className="error-text">{errors.password}</p>}
         </div>
-
+        <div className="signup-redirect">
+          Forget Password
+          <a href="/forgetpassword">Forget Password</a>
+        </div>
         <button type="submit" className="form-button">
           Login
         </button>

@@ -12,6 +12,7 @@ import UserProfile from "./pages/UserProfile";
 import { getuserInfo } from "./services/Profile";
 import { useAuth } from "./context/AuthProvider";
 import Analytics from "./pages/Analytics";
+import ForgetPassword from "./pages/ForgetPassword";
 
 const App = () => {
   const { user, setUser } = useAuth();
@@ -58,6 +59,14 @@ const App = () => {
           element={
             <ProtectedRoute isPublic={true}>
               <Signup />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/forgetpassword"
+          element={
+            <ProtectedRoute isPublic={true}>
+              <ForgetPassword />
             </ProtectedRoute>
           }
         />
