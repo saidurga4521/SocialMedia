@@ -19,8 +19,6 @@ const PostUpLoadForm = () => {
   const getPostById = async (id) => {
     try {
       const { data } = await GetPostById(id);
-      console.log("image", data.data.image);
-      console.log("text", data.data.text);
       if (data.success) {
         setPreview(data.data.image);
         setCaption(data.data.text);

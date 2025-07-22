@@ -26,3 +26,72 @@
 
          - Displays error messages below each input field and provides a redirect link for users who already have an account.
 
+### 2.Uploading The Posts:
+
+#### 🔧 Basic Setup
+
+         - useState → Manage file, preview, caption, loading state.
+
+         - useRef → Used to trigger the hidden file input.
+
+         - useEffect → Fetch post data in Edit mode.
+
+         - useDispatch → Dispatch Redux actions (createPosts, updatePosts).
+
+#### 🆚 Add vs Edit Mode
+
+         - window.location.href.includes("/editpost") → Checks if it's Edit.
+
+         - If Edit, fetch post data using GetPostById() inside useEffect.
+
+#### Image Upload & Preview
+
+         - File selected → stored in file.
+
+         - Preview shown using: URL.createObjectURL(selectedFile).
+
+         - File removed → reset file, preview, and clear input via inputref.
+
+#### 📝 Caption Handling
+
+         - Text area captures caption via setCaption.
+
+         - Caption is part of the final payload for post creation/update.
+
+#### 📤 Form Submission Logic
+
+         - Validate: Must have file and caption, else show toast.error.
+
+         - Create FormData, append image file → call uploadPost().
+
+         - Get file_url from response → set as image in payload.
+
+         - Final payload: { text: caption, image: file_url }.
+
+#### 🔁 Add or Edit Post (Redux)
+
+         - dispatch(createPosts(payload)) → For new post.
+
+         - dispatch(updatePosts({ data: payload, id })) → For editing existing post.
+
+         - Reset states after successful upload.
+
+#### 💡 Rendering UI
+
+         - upload-box: Opens file picker when clicked.
+
+         - If image exists → show preview + FaTimes to remove.
+
+         - Else → show upload icon (FaPlus).
+
+         - Textarea → shows and updates caption.
+
+         - Button text = "Post" or "Edit" based on mode.
+
+         - Button disabled when loading.
+
+#### 🚨 Error & Success Handling
+
+         - Uses toast for feedback (errors, success).
+
+         - Loading state handled cleanly using setLoading.
