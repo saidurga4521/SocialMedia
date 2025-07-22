@@ -122,3 +122,69 @@
          - useState(null) → Initializes user as null (no one logged in initially).
 
          - AuthContext.Provider → Supplies { user, setUser } to all nested components.
+
+### 5.Home page
+
+         - Decides whether to show all posts or only my posts, based on the URL.
+
+         - Uses Redux dispatch(fetchPosts(...)) to fetch posts from the server.
+
+         - Gets posts data and loading state from Redux using useSelector.
+
+         - When loading is true, shows "Loading...".
+
+         - Once posts are ready, maps over them and renders a PostCard for each.
+
+### 6.PostCard
+
+#### Header
+
+        -Displays the post owner’s name and post date.
+
+        -If on "My Posts" page:
+
+        -Shows edit and delete icons.
+
+        -Edit navigates to /editpost/:id.
+
+        -Delete dispatches deletePostById.
+
+#### Post Content
+
+        - Shows image and caption of the post.
+
+#### Likes & Dislikes
+
+        - If user already liked the post → show filled heart (FaHeart), allow dislike.
+
+        - If not liked → show outline heart (FaRegHeart), allow like.
+
+        - Likes/dislikes are handled via Redux actions: postLikeById / postDisLikeById.
+
+#### Comments
+
+        - Shows a comment icon (FaComment) to toggle the comment section.
+
+        - Fetches and displays comments when component mounts via dispatch(fetchComments(post.\_id)).
+
+### 7.Comment Section
+
+#### Show Comments
+
+        - Loops through the comments array and displays each comment.
+
+        - If the logged-in user is the author of a comment → shows delete icon.
+
+        - Delete triggers dispatch(deleteComments(...)).
+
+#### Add New Comment
+
+        - Text input + "send" button to add a comment.
+
+#### On clicking send:
+
+        - Validates input is not empty.
+
+        - Dispatches commentsUpload({ data, id }) to post the comment.
+
+        - Clears the input field.
