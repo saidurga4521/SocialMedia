@@ -95,3 +95,30 @@
          - Uses toast for feedback (errors, success).
 
          - Loading state handled cleanly using setLoading.
+
+### 3.Protected Route
+
+         - getAuthToken() checks if the user is logged in by retrieving the token from local storage.
+
+         - If there's no token and the route is not public, redirect the user to the /login page.
+
+         - If there's a token and the route is public, redirect the user to the home page /.
+
+         - If the route is private and the user is logged in, show the Navbar and the page content (children).
+
+         - If the route is public, show only the page content (children).
+
+         - isPublic is false by default, meaning routes are protected unless specified as public.
+
+### 4. Context API(Auth Provider)
+
+         - It sets up authentication context in React so that any component can access and update the logged-in user info.
+         - createContext(null) → Creates a global context to hold user authentication data.
+
+         - useAuth() → Custom hook to access the auth context from any component easily.
+
+         - AuthProvider → Wrapper component that provides the user state to all child components.
+
+         - useState(null) → Initializes user as null (no one logged in initially).
+
+         - AuthContext.Provider → Supplies { user, setUser } to all nested components.
