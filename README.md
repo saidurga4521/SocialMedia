@@ -188,3 +188,21 @@
         - Dispatches commentsUpload({ data, id }) to post the comment.
 
         - Clears the input field.
+
+#### 8.Profile
+
+        - Uses local profile state to manage the name and email shown in the form.
+
+        - Gets the current user data from Redux using useSelector.
+
+        - On mount, dispatches fetchUsers(getuserInfo) to load user info from the backend.
+
+        - Once Redux user data is available, syncs it to local state using useEffect.
+
+        - Only the name field is editable, the email is read-only.
+
+        - handleNameChange updates the local state when the name input is changed.
+
+        - On clicking Update, it dispatches updateprofile with the updated name.
+
+        - After updating, it fetches fresh user info to refresh Redux state.
