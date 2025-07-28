@@ -5,11 +5,13 @@ import { toast } from "react-toastify";
 import { GetPostById, uploadPost } from "../services/Post";
 import { useDispatch } from "react-redux";
 import { createPosts, updatePosts } from "../../toolkit/postSlice";
+import { useNavigate } from "react-router-dom";
 const PostUpLoadForm = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [caption, setCaption] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   //redux
   const dispatch = useDispatch();
   //This code is for update or edit the  the post
@@ -106,6 +108,7 @@ const PostUpLoadForm = () => {
       setFile(null);
       setPreview(null);
       setLoading(false);
+      navigate("/myposts");
     } catch (error) {
       toast.error("something went wrong");
       setLoading(false);

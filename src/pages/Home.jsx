@@ -33,6 +33,7 @@ const Home = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="home-container">
       {posts.map((post) => (
