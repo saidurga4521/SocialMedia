@@ -72,6 +72,7 @@ const PostCard = ({ post }) => {
     // }
     await dispatch(postLikeById(id)).unwrap();
   };
+
   const handledisLike = async (id) => {
     // try {
     //   const { data } = await PostUnLike(id);
@@ -86,6 +87,7 @@ const PostCard = ({ post }) => {
     // }
     await dispatch(postDisLikeById(id)).unwrap();
   };
+
   return (
     <div className="postCard">
       <div className="post-header">

@@ -99,12 +99,13 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     const token = getAuthToken();
+
     try {
-      const response = await LogOut(token);
-      if (!token || !user) {
+      if (!token) {
         toast.error("Something went wrong!!");
         return;
       }
+      const response = await LogOut(token);
       if (!response?.data?.success) {
         toast.error(response?.data?.message);
         return;

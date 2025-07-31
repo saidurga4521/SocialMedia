@@ -67,14 +67,18 @@ const PostUpLoadForm = () => {
         return;
       }
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("image", file);
       const response1 = await uploadPost(formData);
-      updatedURL = response1?.data?.data?.file_url;
+
+      updatedURL = response1?.data?.data?.image;
+      let imageId = response1?.data?.data?.imageId;
+
       //now upload the "updatedURL" in database
       //Its a protected route so we add token also
       const payload = {
         text: caption,
         image: updatedURL,
+        imageId: imageId,
       };
 
       if (currentMode === "Edit") {

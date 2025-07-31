@@ -19,6 +19,6 @@ export const GetPostById = (postId) =>
 export const UpdatePost = (data, postId) =>
   axiosInstance.put(Endpoints.updatePost(postId), data);
 export const PostLike = (postId) =>
-  axiosInstance.post(Endpoints.LikePost(postId), null);
+  axiosInstance.put(Endpoints.LikePost(postId), null);
 export const PostUnLike = (postId) =>
-  axiosInstance.post(Endpoints.UnLikePost(postId), null);
+  axiosInstance.put(Endpoints.UnLikePost(postId), null);

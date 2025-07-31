@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getAuthToken } from "../helpers/Localstorage";
-const base_url = "https://social-media-server-v1-awpt.onrender.com/api";
+// const base_url = "https://social-media-server-v1-awpt.onrender.com/api";
+const base_url = "https://socialmedia-server-xurs.onrender.com/api";
 export const axiosInstance = axios.create({
   baseURL: base_url,
 });

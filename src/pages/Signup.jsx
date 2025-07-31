@@ -37,7 +37,7 @@ const Signup = () => {
     }
     setErrors((prev) => ({ ...prev, [name]: message }));
   };
-  console.log(errors);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     //1.while submitting also we need to validate the data
@@ -65,9 +65,10 @@ const Signup = () => {
         email: response?.data?.data?.email,
         userId: response?.data?.data?.userId,
       });
-      navigate("/");
+
       LocalStorage(response?.data?.data?.token);
       setFormData(inputFormValues);
+      navigate("/");
     } catch (error) {
       console.log("error", error.message);
     }

@@ -33,6 +33,9 @@ const Home = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  if (posts.length === 0) {
+    return <div>no posts please add it</div>;
+  }
 
   return (
     <div className="home-container">
