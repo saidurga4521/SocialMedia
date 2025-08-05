@@ -4,6 +4,10 @@ import PostCard from "../components/PostCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../toolkit/postSlice";
 import "../styles/home.css";
+
+import Users from "./Users";
+import { fetchUsers } from "../../toolkit/userSlice";
+import { getuserInfo } from "../services/Profile";
 const Home = () => {
   // const [posts, setPosts] = useState([]);
   // const [Loading, setLoading] = useState(false);
@@ -30,20 +34,30 @@ const Home = () => {
   useEffect(() => {
     getFetchPosts();
   }, [fetcherPosts]);
+  useEffect(() => {
+    // fetch user from backend
+    dispatch(fetchUsers(getuserInfo));
+  }, [dispatch]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
   if (posts.length === 0) {
     return <div>no posts please add it</div>;
   }
+  //for all users
 
   return (
     <div className="home-container">
-      {posts.map((post) => (
-        <div className="home-post-wrapper" key={post._id}>
-          <PostCard post={post} refetch={getFetchPosts} />
-        </div>
-      ))}
+      <div className="AllPosts">
+        {posts.map((post) => (
+          <div key={post._id}>
+            <PostCard post={post} refetch={getFetchPosts} />
+          </div>
+        ))}
+      </div>
+      <div className="followersContainer">
+        <Users />
+      </div>
     </div>
   );
 };

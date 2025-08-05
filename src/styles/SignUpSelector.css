@@ -1,0 +1,156 @@
+/* signup-selector.css - Clean Version */
+.selector-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  padding: 2rem;
+}
+
+.selector-box {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.selector-heading {
+  color: #2d3748;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.selector-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selector-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #4f46e5;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-option:hover {
+  border-color: #4f46e5;
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.1);
+}
+
+.selector-option:active {
+  transform: translateY(0);
+}
+
+.selector-icon {
+  font-size: 1.2rem;
+}
+
+/* signup-selector.css - Compact like CreatorSignup */
+.form-wrapper {
+  background: white;
+  padding: 1rem 1.5rem; /* Very tight padding */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0; /* No margin below header */
+  position: relative;
+}
+
+.form-header h2 {
+  color: #2d3748;
+  margin: 0; /* No margin */
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.3; /* Tighter line height */
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+.back-button:hover {
+  color: #4f46e5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .selector-box,
+  .form-wrapper {
+    padding: 2rem;
+  }
+
+  .selector-buttons {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .selector-container {
+    padding: 1rem;
+  }
+
+  .selector-box,
+  .form-wrapper {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .selector-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .selector-option {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+}

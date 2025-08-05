@@ -85,13 +85,14 @@ import { getAuthToken } from "../helpers/Localstorage";
 import { LogOut } from "../services/Auth";
 import { toast } from "react-toastify";
 import "../styles/navbar.css";
+import { FaCrown } from "react-icons/fa";
 
 const Navbar = () => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "CreatePost", path: "/createpost" },
     { label: "myposts", path: "/myposts" },
-    { label: "Profile", path: "/user-profile" },
+    // { label: "Profile", path: "/user-profile" },
   ];
 
   const user = useSelector((state) => state.users.user);
@@ -117,7 +118,7 @@ const Navbar = () => {
       console.log(error);
     }
   };
-
+  console.log("the user", user);
   return (
     <div className="navbar">
       <div className="navbar-links">
@@ -134,7 +135,20 @@ const Navbar = () => {
         ))}
       </div>
       <div className="navbar-user">
-        <span>{user?.name}</span>
+        <NavLink to="/profile">
+          <span>{user?.name}</span>
+        </NavLink>
+
+        {user?.role === "creator" && (
+          <FaCrown
+            title="Creator"
+            style={{
+              marginLeft: "8px",
+              color: "#fbbf24",
+              verticalAlign: "middle",
+            }}
+          />
+        )}
         <button onClick={handleLogout}>Logout</button>
       </div>
     </div>

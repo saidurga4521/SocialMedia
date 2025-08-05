@@ -1,51 +1,83 @@
-/* .home-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  background-color: #f9fafb;
-}
-
-.home-post-wrapper {
-  scroll-snap-align: start;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.loading {
-  text-align: center;
-  font-size: 20px;
-  padding: 50px;
-  color: #4b5563;
-} */
-
-/* Home container with full height scroll snapping */
 .home-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  background-color: #f9fafb;
-}
-
-/* Each post takes full screen height without overflow issues */
-.home-post-wrapper {
-  scroll-snap-align: start;
-  min-height: 100vh;
-  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 20px auto 0; /* Added top margin */
   padding: 20px;
+  gap: 30px;
 }
 
-/* Loading or empty state styling */
-.loading {
+.AllPosts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  margin: 20px auto 0; /* Added top margin */
+  padding-top: 20px; /* Added padding-top */
+}
+
+.followersContainer {
+  width: auto;
+  display: none;
+  background-color: #f8f9fa; /* Changed from red to subtle gray */
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.home-loading-state {
   text-align: center;
-  font-size: 20px;
-  padding: 50px;
-  color: #4b5563;
+  width: 100%;
+  padding: 60px;
+  font-size: 1.4rem;
+  color: #666;
+  animation: pulse 1.5s infinite;
+}
+
+.home-empty-state {
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 40px;
+  margin: 20px auto;
+  font-size: 1.3rem;
+  color: #666;
+  max-width: 600px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .followersContainer {
+    display: block;
+  }
+
+  .AllPosts {
+    max-width: 680px; /* Slightly wider cards on desktop */
+  }
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 15px;
+  }
+
+  .AllPosts > div {
+    padding: 18px;
+    min-height: 160px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }

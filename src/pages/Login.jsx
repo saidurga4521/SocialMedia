@@ -30,11 +30,13 @@ const Login = () => {
     setUser1((prev) => ({ ...prev, [name]: value }));
     validateFormdata(name, value);
   };
+  console.log("user", user);
   const handleClick = async (e) => {
     //to avoid refresh
     e.preventDefault();
     try {
       const response = await LoginForm(user);
+      console.log("the reponse", response);
       if (!response?.data?.success) {
         toast.error(response?.data?.message);
         return;
@@ -81,7 +83,7 @@ const Login = () => {
           {errors.password && <p className="error-text">{errors.password}</p>}
         </div>
         <div className="signup-redirect">
-          Forget Password
+          Forget Password?
           <a href="/forgetpassword">Forget Password</a>
         </div>
         <button type="submit" className="form-button">
