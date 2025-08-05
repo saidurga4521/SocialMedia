@@ -10,6 +10,8 @@ export const Endpoints = {
   GetAllUsers: "/auth/allusers",
   GetAllFollowers: "/auth/user/followers",
   GetAllFollowings: "/auth/user/followings",
+  PasswordReset: "/auth/reset-password",
+  PasswordForgot: "/auth/forgot-password",
   Followuser: (userId) => `/auth/user/follow/${userId}`,
   UnFollowuser: (userId) => `/auth/user/unfollow/${userId}`,
   deletePost: (postId) => `/post/delete/post/${postId}`,

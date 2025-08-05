@@ -3,7 +3,6 @@ import { getAllUsers, UserFollow, UserUnFollow } from "../services/Auth";
 import "../styles/Users.css";
 import { useAuth } from "../context/AuthProvider";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setusers] = useState([]);

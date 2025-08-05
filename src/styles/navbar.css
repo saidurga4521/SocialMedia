@@ -52,6 +52,7 @@
   align-items: center;
   gap: 16px;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .navbar-user span {

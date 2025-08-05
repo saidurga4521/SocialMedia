@@ -15,6 +15,7 @@ import Analytics from "./pages/Analytics";
 import ForgetPassword from "./pages/ForgetPassword";
 import SignupSelector from "./pages/SignupSelector";
 import Profile from "./pages/Profile";
+import ResetPassword from "./pages/ResetPassword";
 
 const App = () => {
   const { user, setUser } = useAuth();
@@ -57,10 +58,26 @@ const App = () => {
           }
         />
         <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/signup"
           element={
             <ProtectedRoute isPublic={true}>
               <SignupSelector />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/reset-password"
+          element={
+            <ProtectedRoute isPublic={true}>
+              <ResetPassword />
             </ProtectedRoute>
           }
         />

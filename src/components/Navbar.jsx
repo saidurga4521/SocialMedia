@@ -92,7 +92,7 @@ const Navbar = () => {
     { label: "Home", path: "/" },
     { label: "CreatePost", path: "/createpost" },
     { label: "myposts", path: "/myposts" },
-    // { label: "Profile", path: "/user-profile" },
+    { label: "Analytics", path: "/analytics" },
   ];
 
   const user = useSelector((state) => state.users.user);
