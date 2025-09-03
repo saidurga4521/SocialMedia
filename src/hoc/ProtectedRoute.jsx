@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 
 const ProtectedRoute = ({ children, isPublic = false }) => {
   const token = getAuthToken();
+  console.log(token);
   if (!token && !isPublic) {
     return <Navigate to="/login" replace />;
   }

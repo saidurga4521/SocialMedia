@@ -15,6 +15,7 @@ const Signup = () => {
   const { setUser } = useAuth();
   const [formData, setFormData] = useState(inputFormValues);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +53,7 @@ const Signup = () => {
     }
 
     try {
+      setLoading(true);
       const response = await SignUpForm(formData);
       console.log(response);
       if (!response?.data?.message) {
@@ -71,6 +73,8 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       console.log("error", error.message);
+    } finally {
+      setLoading(false);
     }
     //we need to store token in localStorage
   };
@@ -107,7 +111,9 @@ const Signup = () => {
         />
         {errors.password && <p className="form-error">{errors.password}</p>}
 
-        <button className="form-button">Sign In</button>
+        <button className="form-button" disabled={loading}>
+          {loading ? "Laoding..." : "Sign In"}
+        </button>
 
         <div className="signup-redirect">
           Already have an account? <a href="/login">Login</a>

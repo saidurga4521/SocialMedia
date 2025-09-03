@@ -8,6 +8,7 @@ import "../styles/login.css";
 
 const Login = () => {
   const intialFormValues = { email: "", password: "" };
+  const [loading, setLoading] = useState(false);
   const [user, setUser1] = useState(intialFormValues);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Login = () => {
     //to avoid refresh
     e.preventDefault();
     try {
+      setLoading(true);
       const response = await LoginForm(user);
       console.log("the reponse", response);
       if (!response?.data?.success) {
@@ -52,8 +54,14 @@ const Login = () => {
       navigate("/", { replace: true });
     } catch (error) {
       console.log("error", error);
+    } finally {
+      setLoading(false);
     }
   };
+  const handleOAuthClick = () => {
+    window.location.href = "http://localhost:9999/api/auth/google";
+  };
+
   return (
     <div className="login-container">
       <form onSubmit={handleClick} className="login-form">
@@ -86,9 +94,15 @@ const Login = () => {
           Forget Password?
           <a href="/forgetpassword">Forget Password</a>
         </div>
-        <button type="submit" className="form-button">
-          Login
+        <button type="submit" className="form-button" disabled={loading}>
+          {loading ? "Loading..." : "Login"}
         </button>
+        {/* <button
+          onClick={handleOAuthClick}
+          className="form-button google-button"
+        >
+          Login with Google
+        </button> */}
         <div className="signup-redirect">
           Don’t have an account?
           <a href="/signup">Sign up</a>

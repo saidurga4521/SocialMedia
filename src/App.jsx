@@ -16,6 +16,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import SignupSelector from "./pages/SignupSelector";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
+import OAuthSuccess from "./pages/OAuthSuccess.jsx";
 
 const App = () => {
   const { user, setUser } = useAuth();
@@ -54,14 +55,6 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/analytics"
-          element={
-            <ProtectedRoute>
-              <Analytics />
             </ProtectedRoute>
           }
         />
@@ -110,6 +103,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <UserProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/oauth-success"
+          element={
+            <ProtectedRoute isPublic={true}>
+              <OAuthSuccess />
             </ProtectedRoute>
           }
         />
