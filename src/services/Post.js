@@ -5,7 +5,7 @@ export const uploadPost = (data) =>
     headers: {
       "Content-Type": "multipart/form-data",
     },
-    withCredentials: true,
+    withCredentials: false,
   });
 
 export const createPost = (data) =>
