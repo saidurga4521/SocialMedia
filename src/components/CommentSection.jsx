@@ -49,7 +49,7 @@ const CommentSection = ({ postId, comments }) => {
     <div className="comment-section">
       <div className="comment-item">
         {comments.map((comment) => (
-          <div className="comment-user" key={comment._id}>
+          <div className="comment-user" key={comment?._id}>
             <div className="user-avatar">
               <span>
                 {comment?.user?.name
@@ -59,9 +59,9 @@ const CommentSection = ({ postId, comments }) => {
               </span>
             </div>
             <p>{comment?.text}</p>
-            {user.userId === comment.user._id && (
+            {user.userId === comment.user?._id && (
               <FaTrash
-                onClick={() => handleDeleteComments(comment._id)}
+                onClick={() => handleDeleteComments(comment?._id)}
                 className="delete-icon"
               />
             )}

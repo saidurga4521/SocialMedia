@@ -54,6 +54,9 @@
   margin-top: 10px;
   text-decoration: none;
 }
+.navbar-user a {
+  text-decoration: none;
+}
 
 .navbar-user span {
   font-size: 16px;

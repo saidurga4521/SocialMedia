@@ -13,14 +13,7 @@ const Profile = () => {
   const [followers, setFollowers] = useState([]);
   const [followings, setFollowings] = useState([]);
   const location = useLocation();
-  // const getUser = async () => {
-  //   try {
-  //     const response = await getLoggedUser();
-  //     setUser(response?.data?.data);
-  //   } catch (error) {
-  //     console.log("the user error", error);
-  //   }
-  // };
+
   const followersUsers = async () => {
     try {
       const response = await getAllFollowers();
@@ -41,9 +34,6 @@ const Profile = () => {
     followersUsers();
     followeingsUsers();
   }, [location]);
-  console.log("the user1", user);
-  console.log("the followers", followers);
-  console.log("the followings", followings);
   return (
     <div>
       <div className="profile-container">
@@ -63,12 +53,8 @@ const Profile = () => {
             </NavLink>
           </div>
           <div className="down">
-            <span className="followers">
-              followers:{user?.followers.length}
-            </span>
-            <span className="followings">
-              followings:{user?.followings.length}
-            </span>
+            <span className="followers">followers:{followers.length}</span>
+            <span className="followings">followings:{followings.length}</span>
           </div>
         </div>
       </div>
