@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <div>
-      <Routes>
+      <Routes basename="/">
         <Route
           path="/"
           element={

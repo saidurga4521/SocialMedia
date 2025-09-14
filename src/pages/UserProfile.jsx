@@ -76,8 +76,8 @@ import "../styles/profile.css";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.users);
-
+  const { user, isLoading } = useSelector((state) => state.users);
+  console.log("isLoading", isLoading);
   const [profile, setProfile] = useState({
     name: "",
     email: "",
@@ -107,6 +107,7 @@ const UserProfile = () => {
 
   const handleUpdateProfile = async () => {
     await dispatch(updateprofile({ name: profile.name })).unwrap();
+    isLoading = false;
     dispatch(fetchUsers(getuserInfo)); // Refresh Redux state after update
   };
 
@@ -121,7 +122,9 @@ const UserProfile = () => {
       />
       <label>Email</label>
       <input type="text" name="email" disabled value={profile.email} />
-      <button onClick={handleUpdateProfile}>Update</button>
+      <button onClick={handleUpdateProfile}>
+        {isLoading ? "Loading..." : "update"}
+      </button>
     </div>
   );
 };

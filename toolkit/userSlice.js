@@ -5,6 +5,7 @@ import { UserFollow } from "../src/services/Auth";
 const initialState = {
   user: null,
   followStatus: "idle",
+  isLoading: false,
 };
 
 export const fetchUsers = createAsyncThunk("users/userSlice", async (func) => {
@@ -39,6 +40,9 @@ const userSlice = createSlice({
       .addCase(fetchUsers.fulfilled, (state, action) => {
         console.log("the users", action.payload);
         state.user = action.payload.data.user;
+      })
+      .addCase(updateprofile.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(updateprofile.fulfilled, (state, action) => {
         state.user = {
