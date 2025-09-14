@@ -107,7 +107,7 @@ const UserProfile = () => {
 
   const handleUpdateProfile = async () => {
     await dispatch(updateprofile({ name: profile.name })).unwrap();
-    isLoading = false;
+    // isLoading = false;
     dispatch(fetchUsers(getuserInfo)); // Refresh Redux state after update
   };
 
